@@ -1,0 +1,13 @@
+<h1>All our flats (<%= @flat.count %>)</h1>
+
+<% @flat.each do |flat| %>
+  <div>
+    <h2><%= flat.name %></h2>
+    <p><%= flat.description %></p>
+    <button class="btn-danger"><%= link_to 'More Details', flat_path(flat) %></button>
+    <%= link_to 'Delete this flat', flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%= link_to 'Update this flat', edit_flat_path(flat) %>
+  </div>
+<% end %>
+
+<%= link_to 'Add Flat', new_flat_path, class: "btn-danger" %>
